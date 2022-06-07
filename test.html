@@ -24,7 +24,7 @@
     
     client
     .get({
-        endpoint: 'endpoint',
+        endpoint: 'blogs',
         queries: { limit: 20, filters: 'createdAt[greater_than]2021' },
         })
         .then((res) => console.log(res))
@@ -32,10 +32,12 @@
     
     client
     .get({
-        endpoint: 'endpoint',
-        contentId: 'contentId',
+        endpoint: 'blogs',
+        contentId: '9yzp2o7k40u0',
         queries: { fields: 'title,publishedAt' },
         })
         .then((res) => console.log(res))
         .catch((err) => console.log(err));
     </script>
+
+
