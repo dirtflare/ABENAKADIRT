@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/microcms-js-sdk@latest/dist/umd/microcms-js-sdk.js"></script>
+    <title>microCMS SDK</title>
+</head>
+<body>
+    <h1 id="text"></h1>
+</body>
+</html>
+
+
+<script>
+    const { createClient } = microcms;
+    
+    // Initialize Client SDK.
+    const client = createClient({
+      serviceDomain: 'abedirt', // service-domain は XXXX.microcms.io の XXXX 部分
+        apiKey: '017f993ea23e43d89a5d5fbe35e9b0c05ca5',
+    });
+    
+    client
+    .get({
+        endpoint: 'endpoint',
+        queries: { limit: 20, filters: 'createdAt[greater_than]2021' },
+        })
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+    
+    client
+    .get({
+        endpoint: 'endpoint',
+        contentId: 'contentId',
+        queries: { fields: 'title,publishedAt' },
+        })
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+    </script>
